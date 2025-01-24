@@ -37,12 +37,15 @@ async function checkStatus() {
     if (status === 200) {
       console.log('Setting green icon');
       chrome.action.setIcon({path: icons.green});
+      sendStatusToTabs(status);
     } else if (status === 500) {
       console.log('Setting red icon');
       chrome.action.setIcon({path: icons.red});
+      sendStatusToTabs(status);
     } else {
       console.log('Unexpected status:', status);
       chrome.action.setIcon({path: icons.default});
+      sendStatusToTabs(status);
     }
   } catch (error) {
     console.error('Status check failed:', error);

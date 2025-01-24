@@ -18,5 +18,12 @@
   },
   "icons": {
     "24": "icons/icons24.png"
-  }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["status.css"]
+    }
+  ]
 }
