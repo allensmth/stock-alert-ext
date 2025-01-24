@@ -3,9 +3,9 @@ let apiUrl = '';
 
 // Icon paths
 const icons = {
-  default: 'icons/icon_default.svg',
-  green: 'icons/icon_green.svg',
-  red: 'icons/icon_red.svg'
+  default: 'icons/icons24.png',
+  green: 'icons/iconsgreen-24.png',
+  red: 'icons/iconsred-24.png'
 };
 
 // Load stored API URL
