@@ -16,6 +16,18 @@ chrome.storage.sync.get(['apiUrl'], (result) => {
   }
 });
 
+// Send status updates to all tabs
+function sendStatusToTabs(status) {
+  chrome.tabs.query({}, (tabs) => {
+    tabs.forEach(tab => {
+      chrome.tabs.sendMessage(tab.id, {
+        type: 'statusUpdate',
+        status: status
+      });
+    });
+  });
+}
+
 // Check API status
 async function checkStatus() {
   if (!apiUrl) return;
