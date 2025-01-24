@@ -21,13 +21,20 @@ async function checkStatus() {
   if (!apiUrl) return;
 
   try {
+    console.log('Checking API status at:', apiUrl);
     const response = await fetch(apiUrl);
     const status = response.status;
+    console.log('API response status:', status);
     
     if (status === 200) {
+      console.log('Setting green icon');
       chrome.action.setIcon({path: icons.green});
     } else if (status === 500) {
+      console.log('Setting red icon');
       chrome.action.setIcon({path: icons.red});
+    } else {
+      console.log('Unexpected status:', status);
+      chrome.action.setIcon({path: icons.default});
     }
   } catch (error) {
     console.error('Status check failed:', error);
