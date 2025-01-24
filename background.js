@@ -36,7 +36,7 @@ async function checkStatus() {
 }
 
 // Setup periodic checks
-chrome.alarms.create('statusCheck', {periodInMinutes: 1});
+chrome.alarms.create('statusCheck', {periodInMinutes: 1/6});
 chrome.alarms.onAlarm.addListener((alarm) => {
   if (alarm.name === 'statusCheck') {
     checkStatus();
