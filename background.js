@@ -22,8 +22,16 @@ async function checkStatus() {
 
   try {
     console.log('Checking API status at:', apiUrl);
-    const response = await fetch(apiUrl);
-    const status = response.status;
+    const response = await fetch(apiUrl, {
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    
+    // For no-cors mode, we can only check if the request was successful
+    // but not the actual status code
+    const status = response.ok ? 200 : 500;
     console.log('API response status:', status);
     
     if (status === 200) {

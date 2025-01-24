@@ -3,7 +3,10 @@
   "name": "Website Status Monitor",
   "version": "1.0",
   "description": "Monitors website status and shows status via icon color",
-  "permissions": ["storage", "alarms"],
+  "permissions": ["storage", "alarms", "activeTab"],
+  "host_permissions": [
+    "https://www.baidu.com/"
+  ],
   "background": {
     "service_worker": "background.js"
   },
